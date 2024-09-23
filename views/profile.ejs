@@ -1,0 +1,92 @@
+<!-- profile.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+</head>
+<body>
+    <div class="menu">
+        <a href="/login" target="_blank"><img style="background-color: transparent;" draggable="false"  class="logo" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/pinterest-512.png"></a>
+        <a class="home" href="/feed" target="_blank" >Home</a>
+        <input id="one" type="text" class="search-bar" placeholder="Search">
+        <button id="two" class="search-bar"></button>
+        <div class="icon-container">
+          <img tabindex="1" draggable="false" class="icon bell" src="https://i.hizliresim.com/rcvolcu.png">
+          <img tabindex="1" draggable="false" class="icon message" src="https://i.hizliresim.com/newumah.png">
+          <img tabindex="1" draggable="false" class="nav-photo pp icon" src="/images/uploads/<%= user.dp%>">
+          <img tabindex="1" draggable="false" class="icon btn" src="https://i.hizliresim.com/g15mqud.png">
+          
+          <!----FOCUS----->
+          <div tabindex="1" class="focus-bar bell-bar">nothing</div>
+          <!-------------------->
+          <div tabindex="1" class="focus-bar message-bar">you are alone</div>
+          <!-------------------->
+          <div tabindex="1" class="focus-bar pp-bar"><img class="profile-photo" src="/images/uploads/<%= user.dp%>"><a href="/profile" target="_blank">Profile</a><br><a href="/logout" target="_blank">Logout</a></div>
+          <!-------------------->
+          <div tabindex="1" class="focus-bar btn-bar">¯\_( ͡° ͜ʖ ͡°)_/¯</div>
+          
+        </div>
+      </div>
+      <!--------------------------->
+      <div class="responsive-search-bar">
+          <input type="text">
+          <p class="close">❌</p>
+        </div>
+    <main>
+        <section class="profile-container">
+            <div class="profile-header">
+                <form id="upload-form" action="/fileupload" method="post" enctype="multipart/form-data">
+                    <input class="dp-file" type="file" name="dp" >
+                </form>
+                <div class="profile-dp">
+                    <img  src="/images/uploads/<%= user.dp%>" alt="Profile Photo" class="profile-photo">
+                    <svg class="upload-dp" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM13 12V8H11V12H8L12 16L16 12H13Z"></path></svg>
+                </div>
+                <div class="profile-name">
+                    <h1 class="username"><%= user.username %></h1>
+                    <h2 class="fullname"><%= user.fullname %></h2>
+                </div>
+            </div>
+            <div class="profile-bio">
+                <p style="text-align: center;">📸 Photographer | 🎨 Artist | 🌍 Traveler
+                    Crafting visual stories | DM for collaborations
+                    Creating content that inspires 💡</p>
+            </div>
+            <div class="provider">
+                <a href="/edit"><button class="edit-button">Edit</button></a>
+                <a href="/add"><button class="uploadpost-button">Upload A Post</button></a>
+            </div>
+            <div class="post-container">
+                <h2 style="color: red;">Pins: <%= user.posts.length %></h2>
+                <div class="container">
+                    <div class="card-section">
+                        <% user.posts.forEach(function(post){ %>
+                            <div class="card">
+                                <a href="/images/uploads/<%= post.image%>"><img src="/images/uploads/<%= post.image%>" class="uploaded-image"/></a>
+                                <p class="message"><%= post.imageText %></p>
+                            </div>
+                        <% }) %>  
+                            
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+<script>
+
+    document.querySelector(".upload-dp").addEventListener('click',function(){
+        document.querySelector("#upload-form input").click()
+    });
+
+    document.querySelector("#upload-form input").addEventListener('change',function(){
+        document.querySelector("#upload-form").submit();
+    });
+
+</script>
+</html>

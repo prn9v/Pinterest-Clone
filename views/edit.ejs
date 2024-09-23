@@ -1,0 +1,50 @@
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+      <form id="upload-form" action="/fileupload" method="post" enctype="multipart/form-data">
+        <input class="dp-file hidden" type="file" name="dp" >
+      </form>
+      
+      <div class="min-h-screen bg-zinc-300 text-black p-6">
+    <h1 class="text-2xl font-bold mb-6">Edit profile</h1>
+    <div class="flex items-center mb-6 p-4 bg-zinc-100 rounded-lg">
+      <img src="/images/uploads/<%= user.dp%>" alt="Profile Picture" class="w-12 h-12 rounded-full mr-4 object-cover justify-items-center truncate">
+      <div class="flex-grow">
+        <div class="font-bold">prn9v_</div>
+        <div class="text-zinc-400">Pranav Deshmukh</div>
+      </div>
+      <button class="bg-red-500 text-white px-4 py-2 rounded-lg change-photo">Change photo</button>
+    </div>
+    <div class="items-center mb-6 p-4 bg-zinc-100 rounded-lg">
+      <label class="block mb-2 font-bold">Bio</label>
+      <div class="relative">
+          <input type="text" placeholder="Enter Your Bio" name="bio" class="w-full p-3 bg-zinc-100 rounded-lg text-zinc-700"/>
+          <button class="absolute bg-red-500 text-white px-4 py-2 rounded-lg right-2">Change Bio</button>
+      </div>
+    </div>
+    <div class="mb-6">
+      <label class="block mb-2 font-bold">Gender</label>
+      <select class="w-full p-3 bg-zinc-100 rounded-lg text-red-700">
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+      <p class="text-zinc-500 mt-2">This won't be part of your public profile.</p>
+    </div>
+  <script>
+
+    document.querySelector(".change-photo").addEventListener('click',function(){
+      document.querySelector("#upload-form input").click()
+    });
+
+    document.querySelector("#upload-form input").addEventListener('change',function(){
+      document.querySelector("#upload-form").submit();
+    });
+
+  </script>
+  </body>
+  </html>

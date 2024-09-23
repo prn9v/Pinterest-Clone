@@ -1,0 +1,370 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+a{
+  text-decoration: none;
+}
+
+.menu{
+	max-width:100%;
+	display:flex;
+	align-items:center;
+	font-weight:bold;
+	margin-top: 20px;
+	padding: 10px;
+	background: lightgray;
+  }
+  .menu .logo{
+	width:75px;
+	padding:10px;
+	cursor:pointer;
+	border-radius:50%;
+  }
+  .menu .logo:hover{
+	background:#eeeeee;
+  }
+  .menu .home{
+	color:#f3f2f2;
+	background:#000000;
+	padding:12px 25px;
+	cursor:pointer;
+	user-select:none;
+	border-radius:40px;
+	margin:0px 5px;
+  }
+  .menu .search-bar{
+	width:100%;
+	margin:0px 5px;
+	padding:12px 35px;
+	border-radius:40px;
+	outline:none;
+	position:relative;
+	background-color:#efefef;
+	font-size:15px;
+	background-image:url("https://cdn4.iconfinder.com/data/icons/music-ui-solid-24px/24/search-3-256.png");
+	background-size:21px;
+	background-repeat:no-repeat;
+	background-position:center left;
+	background-position:10px;
+	color:gray;
+	border:4px solid transparent;
+  }
+  .menu .search-bar:hover{
+	background-color:#3333;
+  }
+  .menu .search-bar:focus{
+	border:4px solid #7bb5f0;
+	padding:12px 20px;
+	background-image:none;
+  }
+  .menu .search-bar::placeholder{
+	user-select:none;
+  }
+  .icon-container{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	position:relative;
+  }
+  .icon-container .icon{
+	width:75px;
+	border-radius:50%;
+	cursor:pointer;
+	padding:10px;
+	overflow: hidden;
+	object-fit: cover;
+  }
+  .icon-container .icon:hover{
+	background-color:#eeeeee;
+  }
+
+  .nav-photo{
+	width: 40px;
+	height: 80px;
+	object-fit: cover;
+	overflow: hidden;
+	justify-content: center;
+	border-radius: 50%;
+  }
+
+  .profile-photo{
+    width: 70px;
+    height: 130px;
+    object-fit: cover;
+    overflow: hidden;
+    justify-content: center;
+    border-radius: 50%;
+    }
+
+  .icon-container .btn{
+	width:14px;
+	padding:5px;
+  }
+  .focus-bar{
+	width:250px;
+	height:350px;
+	border-radius:15px;
+	background:#fff;
+	border:2px solid #3333;
+	position:absolute;
+	top:40px;/*50px*/
+	left:-90px;
+	visibility:hidden;
+	opacity:0;
+	transition:all 0.3s;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	align-content:center;
+	user-select:none;
+	z-index:99;
+  }
+  .bell:focus + .message + .pp + .btn + .bell-bar, .bell-bar:focus{
+	visibility:visible;
+	opacity:1;
+	top:50px;
+  }
+  .message:focus + .pp + .btn + .bell-bar + .message-bar, .message-bar:focus{
+	visibility:visible;
+	opacity:1;
+	top:50px;
+  }
+  .pp:focus + .btn + .bell-bar + .message-bar + .pp-bar, .pp-bar:focus{
+	visibility:visible;
+	opacity:1;
+	top:50px;
+  }
+  .btn:focus + .bell-bar + .message-bar + .pp-bar + .btn-bar, .btn-bar:focus{
+	visibility:visible;
+	opacity:1;
+	top:50px;
+  }
+  .pp-bar a{
+	text-decoration:none;
+	padding:5px 15px;
+	border:2px solid #161b22;
+	color:#161b22;
+	border-radius:5px;
+  }
+  .pp-bar{
+	flex-direction:column;
+  }
+  .pp-bar img{
+	width:150px;
+	border-radius:50%;
+	margin-bottom:20px;
+  }
+  .pp-bar a:hover{
+	background:#161b22;
+	color:white;
+  }
+  
+  /*MINI SEARCH BAR*/
+  #two{
+	display:none;
+	padding:15px;
+  }
+  .responsive-search-bar{
+	max-width:100%;
+	padding:40px 10px;
+	text-align:center;
+	border-radius:15px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	position:relative;
+	top:-300px;
+	transition:all 0.3s;
+	overflow:hidden;
+	display:none;
+	background:#fff;
+	box-shadow: 0px 0px 2px 0px #333;
+	margin:0px 5px;
+	z-index:99;
+  }
+  .responsive-search-bar input{
+	width:100%;
+	height:35px;
+	outline:none;
+	border-radius:40px;
+	border:4px solid transparent;
+	background-image:url("https://cdn4.iconfinder.com/data/icons/music-ui-solid-24px/24/search-3-256.png");
+	background-size:21px;
+	background-repeat:no-repeat;
+	background-position:center left;
+	background-position:10px;
+	padding:0px 15px 0px 35px;
+	background-color:#efefef;
+  }
+  .responsive-search-bar input:focus{
+	border:4px solid #7bb5f0;
+  }
+  .responsive-search-bar p{
+	font-size:11px;
+	padding:11px;
+	margin-left:5px;
+	border-radius:50%;
+	cursor:pointer;
+	user-select:none;
+	position:absolute;
+	top:-12px;
+	right:-1px;
+	transition:all 0.3s;
+  }
+  .responsive-search-bar p:hover{
+	background:#eeeeee;
+	transform:rotate(-180deg);
+  }
+
+
+.logo{
+	color: #49ffd0;
+	letter-spacing: 25px;
+	font-size: 20px;
+	background-color: #000000;
+}
+
+.navLink{
+	display: flex;
+	justify-content: space-around;
+	width: 40%;
+	background-color: #000000;
+	}
+	
+.navLink li{
+	list-style: none;
+	background-color: #000000;
+}
+
+.navLink a{
+	color: aquamarine;
+	text-decoration: none;
+	letter-spacing: 2px;
+	font-size: 16px;
+	background-color: #000000;
+}
+
+.navLink a:hover{
+   color: #588275;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: #fcfcfc;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+  width: 600px;
+  height: 260px;
+  background-color: #ffffff;
+  padding: 10px 30px 40px;
+}
+
+.card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  
+}
+
+.drop_box {
+  margin: 10px 0;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 3px dotted #a3a3a3;
+  border-radius: 5px;
+}
+
+.drop_box h4 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #2e2e2e;
+}
+
+.drop_box p {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  color: #a3a3a3;
+}
+
+.btn {
+  text-decoration: none;
+  background-color: #005af0;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  transition: 0.3s;
+}
+
+.btn:hover{
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #005af0;
+  padding: 10px 20px;
+  border: none;
+  outline: 1px solid #010101;
+}
+.form input {
+  margin: 10px 0;
+  width: 100%;
+  background-color: #e2e2e2;
+  border: none;
+  outline: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+}
+
+.post-detail{
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.post-message{
+    display: flex;
+    flex-direction: column;
+}
+
+textarea{
+    border-radius: 10px;
+
+}
+
+.upload-button{
+    padding: 10px;
+    background: red;
+    color: white;
+    font-family: 'Gilroy';
+    font-weight: 700;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.post-file{
+    padding: 10px;
+    background: rgb(225, 218, 218);
+    color: rgb(176, 16, 16);
+    font-family: 'Gilroy';
+    font-weight: 700;
+    border-radius: 10px;
+    
+}
